@@ -29,6 +29,9 @@ The email to use for the commit in the destination repository.
 ### `commit-message` (argument) [optional]
 The commit message to be used in the output repository. Defaults to "Update from [destination url]@[commit]".
 
+### `source-branch` (argument)
+The branch name for the source repository to copy files/directories from. Defaults to `master`.
+
 The string `ORIGIN_COMMIT` is replaced by `[destination url]@[commit]`.
 
 ### `API_TOKEN_GITHUB` (environment)
@@ -55,6 +58,7 @@ Then make the token available to the Github Action following the steps:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-files: 'webpage/'
+          source-branch: 'master'
           destination-username: 'nkoppel'
           destination-repository: 'nkoppel.github.io'
           destination-directory: 'projects/my-project'
