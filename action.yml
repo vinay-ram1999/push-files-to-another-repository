@@ -29,6 +29,10 @@ inputs:
     description: '[Optional] commit message for the output repository. ORIGIN_COMMIT is replaced by the URL@commit in the origin repo'
     default: 'Update from ORIGIN_COMMIT'
     required: false
+  source-branch:
+    description: 'Name of the source branch to copy from'
+    default: 'master'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -41,6 +45,7 @@ runs:
     - ${{ inputs.commit-username }}
     - ${{ inputs.commit-email }}
     - ${{ inputs.commit-message }}
+    - ${{ inputs.source-branch }}
 branding:
   icon: 'git-commit'
   color: 'green'
